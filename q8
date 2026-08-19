@@ -1,0 +1,27 @@
+using System;
+
+public class University
+{
+    public class Department
+    {
+        public string DepartmentName { get; set; }
+        public string HODName { get; set; }
+        public int FacultyMembers { get; set; }
+
+        public void DisplayDetails()
+        {
+            Console.WriteLine($"Department: {DepartmentName}");
+            Console.WriteLine($"HOD: {HODName}");
+            Console.WriteLine($"Faculty Members: {FacultyMembers}");
+        }
+    }
+}
+
+ University.Department department = new University.Department
+{
+    DepartmentName = "Computer Science",
+    HODName = "Dr. Sharma",
+    FacultyMembers = 15
+};
+
+department.DisplayDetails();

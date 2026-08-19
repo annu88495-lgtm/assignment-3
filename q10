@@ -1,0 +1,30 @@
+using System;
+
+public abstract class Notification
+{
+    public abstract void SendNotification();
+}
+
+public class EmailNotification : Notification
+{
+    public override void SendNotification()
+    {
+        Console.WriteLine("Sending email notification...");
+    }
+}
+
+ 
+public sealed class UrgentEmailNotification : EmailNotification
+{
+    public override void SendNotification()
+    {
+        Console.WriteLine("Sending urgent email notification...");
+    }
+}
+
+ 
+Notification notification = new EmailNotification();
+notification.SendNotification();
+
+Notification urgentNotification = new UrgentEmailNotification();
+urgentNotification.SendNotification();

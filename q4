@@ -1,0 +1,31 @@
+using System;
+
+public sealed class EmployeePayroll
+{
+    public double CalculateSalary(double basicSalary, double allowance)
+    {
+        return basicSalary + allowance;
+    }
+
+    public double CalculateTax(double salary)
+    {
+        return salary * 0.10;  
+    }
+
+    public double CalculateNetSalary(double salary)
+    {
+        double tax = CalculateTax(salary);
+        return salary - tax;
+    }
+}
+
+ 
+EmployeePayroll payroll = new EmployeePayroll();
+
+double salary = payroll.CalculateSalary(50000, 10000);
+double tax = payroll.CalculateTax(salary);
+double netSalary = payroll.CalculateNetSalary(salary);
+
+Console.WriteLine($"Salary: {salary}");
+Console.WriteLine($"Tax: {tax}");
+Console.WriteLine($"Net Salary: {netSalary}");

@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+public class Repository<T>
+{
+    private List<T> items = new List<T>();
+
+    public void Add(T item)
+    {
+        items.Add(item);
+    }
+
+    public T Get(int index)
+    {
+        return items[index];
+    }
+
+    public void DisplayAll()
+    {
+        foreach (T item in items)
+        {
+            Console.WriteLine(item);
+        }
+    }
+}
+
+public class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public override string ToString()
+    {
+        return $"Employee: {Id}, {Name}";
+    }
+}
+
+ 
+Repository<Student> studentRepository = new Repository<Student>();
+studentRepository.Add(new Student(1, "Rahul", "BCA", 2));
+studentRepository.Add(new Student(2, "Priya", "BCA", 4));
+
+Console.WriteLine("Students:");
+studentRepository.DisplayAll();
+
+Repository<Employee> employeeRepository = new Repository<Employee>();
+employeeRepository.Add(new Employee { Id = 101, Name = "Amit" });
+employeeRepository.Add(new Employee { Id = 102, Name = "Neha" });
+
+Console.WriteLine("\nEmployees:");
+employeeRepository.DisplayAll();

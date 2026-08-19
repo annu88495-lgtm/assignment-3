@@ -1,0 +1,15 @@
+using System;
+
+public record Student(
+    int RollNumber,
+    string Name,
+    string Course,
+    int Semester
+);
+
+// Two students with identical data
+Student student1 = new Student(101, "Amit", "BCA", 3);
+Student student2 = new Student(101, "Amit", "BCA", 3);
+
+Console.WriteLine(student1 == student2); // True
+Console.WriteLine(student1.Equals(student2)); // True

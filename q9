@@ -1,0 +1,41 @@
+using System;
+
+public sealed class ApplicationConfiguration
+{
+    public string ConnectionString { get; private set; }
+    public string ApplicationName { get; private set; }
+    public string Environment { get; private set; }
+
+    private ApplicationConfiguration()
+    {
+        ConnectionString = "Server=localhost;Database=UniversityDB;";
+        ApplicationName = "University Application";
+        Environment = "Production";
+    }
+
+    private static ApplicationConfiguration instance;
+
+    public static ApplicationConfiguration GetConfiguration()
+    {
+        if (instance == null)
+        {
+            instance = new ApplicationConfiguration();
+        }
+
+        return instance;
+    }
+
+    public void DisplayConfiguration()
+    {
+        Console.WriteLine($"Application: {ApplicationName}");
+        Console.WriteLine($"Environment: {Environment}");
+        Console.WriteLine($"Connection: {ConnectionString}");
+    }
+}
+
+ 
+
+ApplicationConfiguration config =
+    ApplicationConfiguration.GetConfiguration();
+
+config.DisplayConfiguration();
